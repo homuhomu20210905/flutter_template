@@ -1,17 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'main.dart';
+part of 'my_app.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$counterHash() => r'96a5e59ad99f0c6af56030f6ea59e2f7947e50c0';
+String _$counterHash() => r'25e1250ce8fd8080fa3936eb0b897d8343e0a33e';
 
-/// See also [counter].
-@ProviderFor(counter)
+/// See also [Counter].
+@ProviderFor(Counter)
 final counterProvider = AutoDisposeProvider<int>.internal(
-  counter,
+  Counter,
   name: r'counterProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product') ? null : _$counterHash,
