@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template/infra/repository/database.dart';
 import 'package:flutter_template/infra/states/my_app.dart';
+import 'package:flutter_template/page/sample/index.dart';
+
+import 'sample/form.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -48,6 +51,13 @@ class MyHomePage extends ConsumerWidget {
                       MyDatabase.getInstance(); //This should be a singleton
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => DriftDbViewer(db)));
+                },
+                child: Text("ほげ")),
+            OutlinedButton(
+                onPressed: () {
+                  var sampleForm = SampleForm(id: "1", name: "hoge", age: 20);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => SampleWidget(form: sampleForm)));
                 },
                 child: Text("ほげ"))
           ],
