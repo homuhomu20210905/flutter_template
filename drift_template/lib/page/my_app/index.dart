@@ -5,10 +5,12 @@ import 'package:flutter_template/infra/repository/database.dart';
 import 'package:flutter_template/infra/states/my_app.dart';
 import 'package:flutter_template/page/sample/index.dart';
 
-import 'sample/form.dart';
+import '../sample/form.dart';
+import 'form.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final MyAppForm form;
+  const MyApp({required this.form, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,7 @@ class MyHomePage extends ConsumerWidget {
             ),
             OutlinedButton(
                 onPressed: () {
-                  var db =
+                  final db =
                       MyDatabase.getInstance(); //This should be a singleton
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => DriftDbViewer(db)));
@@ -55,7 +57,7 @@ class MyHomePage extends ConsumerWidget {
                 child: Text("ほげ")),
             OutlinedButton(
                 onPressed: () {
-                  var sampleForm = SampleForm(id: "1", name: "hoge", age: 20);
+                  final sampleForm = SampleForm(id: "1", name: "hoge", age: 20);
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => SampleWidget(form: sampleForm)));
                 },
