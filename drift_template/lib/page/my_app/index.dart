@@ -5,6 +5,7 @@ import 'package:flutter_template/infra/repository/database.dart';
 import 'package:flutter_template/infra/states/my_app.dart';
 import 'package:flutter_template/page/sample/index.dart';
 
+import '../calc/index.dart';
 import '../sample/form.dart';
 import 'form.dart';
 
@@ -54,14 +55,20 @@ class MyHomePage extends ConsumerWidget {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => DriftDbViewer(db)));
                 },
-                child: Text("ほげ")),
+                child: Text("DbViewer")),
             OutlinedButton(
                 onPressed: () {
                   final sampleForm = SampleForm(id: "1", name: "hoge", age: 20);
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => SampleWidget(form: sampleForm)));
                 },
-                child: Text("ほげ"))
+                child: Text("SampleApp")),
+            OutlinedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => CalculatorApp()));
+                },
+                child: Text("Calc")),
           ],
         ),
       ),

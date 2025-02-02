@@ -9,13 +9,19 @@ class SampleWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    this.form.age;
-    return Column(
-      children: [
-        Text('ID: ${this.form.id}'),
-        Text('Name: ${this.form.name}'),
-        Text('Age: ${this.form.age}'),
-      ],
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("test"),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("id: ${form.id}"),
+              Text("name: ${form.name}"),
+              Text("age: ${form.age}"),
+            ],
+          ),
+        ));
   }
 }
