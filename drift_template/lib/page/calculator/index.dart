@@ -21,26 +21,57 @@ class _CalculatorState extends State<Calculator> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return SafeArea(
+        child: Column(
       children: <Widget>[
         Expanded(
             child: Container(
-                alignment: Alignment.bottomRight,
-                padding: EdgeInsets.all(30.0),
+                alignment: Alignment.topCenter,
+                padding: EdgeInsets.zero,
                 child: Text(display,
-                    style: TextStyle(fontSize: 70, color: Colors.white)))),
-        buildButtonRow(['7', '8', '9', '/']),
-        buildButtonRow(['4', '5', '6', '×']),
-        buildButtonRow(['1', '2', '3', '−']),
-        buildButtonRow(['AC', '0', '.', '+']),
-        buildButtonRow(['', '', '', '=']),
+                    style: TextStyle(fontSize: 35, color: Colors.white)))),
+        Expanded(
+            child: Container(
+                alignment: Alignment.topCenter,
+                padding: EdgeInsets.zero,
+                child: Text(display,
+                    style: TextStyle(fontSize: 35, color: Colors.white)))),
+        Expanded(
+            child: Container(
+                alignment: Alignment.topCenter,
+                padding: EdgeInsets.zero,
+                child: Text(display,
+                    style: TextStyle(fontSize: 35, color: Colors.white)))),
+        Expanded(
+            child: Container(
+                alignment: Alignment.topCenter,
+                padding: EdgeInsets.zero,
+                child: Text(display,
+                    style: TextStyle(fontSize: 35, color: Colors.white)))),
+        Expanded(
+            child: Container(
+                alignment: Alignment.topCenter,
+                padding: EdgeInsets.zero,
+                child: Text(display,
+                    style: TextStyle(fontSize: 35, color: Colors.white)))),
+        Expanded(
+            child: Container(
+                alignment: Alignment.topCenter,
+                padding: EdgeInsets.zero,
+                child: Text(display,
+                    style: TextStyle(fontSize: 35, color: Colors.white)))),
+        Expanded(child: buildButtonRow(['7', '8', '9', '/'])),
+        Expanded(child: buildButtonRow(['4', '5', '6', '×'])),
+        Expanded(child: buildButtonRow(['1', '2', '3', '−'])),
+        Expanded(child: buildButtonRow(['AC', '0', '.', '+'])),
+        Expanded(child: buildButtonRow(['', '', '', '='])),
       ],
-    );
+    ));
   }
 
   Widget buildButtonRow(List<String> titles) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: titles.map((title) => buildButton(title)).toList(),
     );
   }
@@ -48,7 +79,6 @@ class _CalculatorState extends State<Calculator> {
   Widget buildButton(String title) {
     Color buttonColor;
     Color textColor = Colors.white; // デフォルトのテキストの色
-
     if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
         .contains(title)) {
       buttonColor = Colors.grey[800]!;
@@ -60,19 +90,25 @@ class _CalculatorState extends State<Calculator> {
     }
 
     return title.isEmpty
-        ? Container(width: 70, height: 70)
-        : Container(
-            width: 70,
-            height: 70,
-            margin: EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              onPressed: () => onButtonPressed(title),
-              child:
-                  Text(title, style: TextStyle(fontSize: 24, color: textColor)),
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: buttonColor,
-                shape: CircleBorder(),
+        ? Expanded(child: Container())
+        : Expanded(
+            child: Container(
+              // margin: EdgeInsets.all(2.0), // ボタン間の間隔を設定
+              // width: double.infinity,
+              child: AspectRatio(
+                aspectRatio: 1, // 正方形にする
+                child: ElevatedButton(
+                  onPressed: () => onButtonPressed(title),
+                  child: Text(title,
+                      style: TextStyle(fontSize: 24, color: textColor)),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: buttonColor,
+                    shape: CircleBorder(),
+                    fixedSize:
+                        Size.fromWidth(double.maxFinite), //横幅にmaxFiniteを指定
+                  ),
+                ),
               ),
             ),
           );

@@ -5,7 +5,7 @@ import 'package:flutter_template/infra/repository/database.dart';
 import 'package:flutter_template/infra/states/my_app.dart';
 import 'package:flutter_template/page/sample/index.dart';
 
-import '../calc/index.dart';
+import '../calculator/index.dart';
 import '../sample/form.dart';
 import 'form.dart';
 
